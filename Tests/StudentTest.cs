@@ -39,16 +39,18 @@ namespace Universidad
     public void Test_SaveStudents_SavesToDatabase()
     {
       //Arrange
-      Student student1 = new Student("johnny");
+      Student student1 = new Student("johnny", true);
       student1.Save();
 
       //Act
       List<Student> allStudents = Student.GetAll();
+      Console.WriteLine(allStudents);
       List<Student> testList = new List<Student>{student1};
 
       //Assert
       Assert.Equal(testList, allStudents);
     }
+
     public void Dispose()
     {
       Student.DeleteAll();
